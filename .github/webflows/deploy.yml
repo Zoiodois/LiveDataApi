@@ -1,7 +1,6 @@
 name: Deploy Laravel Estufas Project
 
 on: 
-  push:
     push:
       branches: [ "main" ]
 
