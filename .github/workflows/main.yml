@@ -40,7 +40,7 @@ jobs:
           SOURCE: "."
           REMOTE_HOST: ${{ secrets.VPS_HOST}}
           REMOTE_USER: ${{ secrets.VPS_USER}}
-          TARGET: "/var/www/html/felipebsr.online"
+          TARGET: "fel78912/public_html/laravel"
 
       - name: Run Remote/Artisan Commands
         uses: appleboy/ssh-action@v0.1.6
