@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Composer Dependencies
-        run: composer install --optmize-autoloader --no-dev --no-progress --no-interaction --prefer-dist
+        run: composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist
 
       - name: Install Node.js
         uses: actions/setup-node@v3
