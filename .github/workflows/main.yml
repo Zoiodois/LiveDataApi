@@ -45,10 +45,10 @@ jobs:
       - name: Run Remote/Artisan Commands
         uses: appleboy/ssh-action@v0.1.6
         with: 
-          host: ${{ secrets.VPS_HOST}}
-          username: ${{ secrets.VPS_USER}}
+          host: ${{ secrets.REMOTE_HOST}}
+          username: ${{ secrets.REMOTE_USER}}
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           script: |
-            cd /var/www/hml/felipebsr@gmail.com
+            cd /home2/fel78912/public_html/laravel
             php artisan migrate --force
             php artisan optmize
