@@ -49,5 +49,8 @@ jobs:
           username: ${{ secrets.REMOTE_USER}}
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           script: |
-          ssh -o KexAlgorithms=diffie-hellman-group-exchange-sha256 ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cd /home2/fel78912/public_html/laravel && php artisan migrate --force && php artisan optimize"
+          ssh -o KexAlgorithms=diffie-hellman-group-exchange-sha256 ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}
+          cd /home2/fel78912/public_html/laravel 
+          php artisan migrate --force 
+          php artisan optimize"
          
