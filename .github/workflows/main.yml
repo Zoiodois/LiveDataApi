@@ -38,8 +38,8 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SOURCE: "."
-          REMOTE_HOST: ${{ secrets.VPS_HOST}}
-          REMOTE_USER: ${{ secrets.VPS_USER}}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "fel78912/public_html/laravel"
 
       - name: Run Remote/Artisan Commands
