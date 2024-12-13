@@ -53,5 +53,5 @@ jobs:
           script: |
             cd /home2/fel78912/public_html/laravel2
             php artisan migrate --force 
-            php artisan optimize"
+            php artisan optimize
          
