@@ -40,7 +40,7 @@ jobs:
           SOURCE: "."
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: "/home2/fel78912/public_html/laravel"
+          TARGET: "/home2/fel78912/public_html/laravel2"
 
       - name: Run Remote/Artisan Commands
         uses: appleboy/ssh-action@v0.1.6
@@ -51,7 +51,7 @@ jobs:
           use_insecure_cipher: true
           ssh_options: "-o KexAlgorithms=diffie-hellman-group-exchange-sha256"
           script: |
-            cd /home2/fel78912/public_html/laravel
+            cd /home2/fel78912/public_html/laravel2
             php artisan migrate --force 
             php artisan optimize"
          
