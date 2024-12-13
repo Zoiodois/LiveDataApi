@@ -48,6 +48,7 @@ jobs:
           host: ${{ secrets.REMOTE_HOST}}
           username: ${{ secrets.REMOTE_USER}}
           key: ${{ secrets.ID_ED25519}}
+          use_insecure_cipher: true
           ssh_options: "-o KexAlgorithms=diffie-hellman-group-exchange-sha256"
           script: |
             cd /home2/fel78912/public_html/laravel
