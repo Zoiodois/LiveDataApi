@@ -50,7 +50,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           ssh_options: "-o KexAlgorithms=diffie-hellman-group-exchange-sha256"
           script: |
-          cd /home2/fel78912/public_html/laravel
-          php artisan migrate --force 
-          php artisan optimize"
+            cd /home2/fel78912/public_html/laravel
+            php artisan migrate --force 
+            php artisan optimize"
          
