@@ -17,24 +17,24 @@ class LivedataController extends Controller
     
             // Validação dos dados recebidos
             $validated = $request->validate([
-                'UrGHouse'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100' ], 
-                'tempGHouse'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100' ], 
-                'lum'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:110', 'min:-100' ], 
-                'sen1' => ['integer', 'numeric', 'ascii','digits_between:0,1025', 'max:1025', 'min:-100' ],
-                'sen2' => ['integer', 'numeric', 'ascii','digits_between:0,1025', 'max:1025', 'min:-100' ],
-                'sen3' => ['integer', 'numeric', 'ascii','digits_between:0,1025', 'max:1025', 'min:-100' ],
-                'UrExternal'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100' ], 
-                'tempExternal'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100' ], 
-                'maxTemp'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100' ], 
-                'minTemp'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100' ], 
-                'lastCycleEpoch' => ['integer', 'numeric', 'ascii'],
-                'lastIr1Epoch' => ['integer', 'numeric', 'ascii'],
-                'lastIr2Epoch' => ['integer', 'numeric', 'ascii'],
-                'lastIr3Epoch' => ['integer', 'numeric', 'ascii'],
-                'lastIr4Epoch' => ['integer', 'numeric', 'ascii'],
-                'lastIr5Epoch' => ['integer', 'numeric', 'ascii'],
-                'lastCycleStart' => ['integer', 'numeric', 'ascii'],
-                'queue' => ['ascii']
+                'UrGHouse'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100','nullable' ], 
+                'tempGHouse'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100','nullable' ], 
+                'lum'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:110', 'min:-100','nullable' ], 
+                'sen1' => ['integer', 'numeric', 'ascii','digits_between:0,1025', 'max:1025', 'min:-100','nullable' ],
+                'sen2' => ['integer', 'numeric', 'ascii','digits_between:0,1025', 'max:1025', 'min:-100','nullable' ],
+                'sen3' => ['integer', 'numeric', 'ascii','digits_between:0,1025', 'max:1025', 'min:-100','nullable' ],
+                'UrExternal'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100','nullable' ], 
+                'tempExternal'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100','nullable' ], 
+                'maxTemp'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100','nullable' ], 
+                'minTemp'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100' ,'nullable'], 
+                'lastCycleEpoch' => ['integer', 'numeric', 'ascii','nullable'],
+                'lastIr1Epoch' => ['integer', 'numeric', 'ascii','nullable'],
+                'lastIr2Epoch' => ['integer', 'numeric', 'ascii','nullable'],
+                'lastIr3Epoch' => ['integer', 'numeric', 'ascii','nullable'],
+                'lastIr4Epoch' => ['integer', 'numeric', 'ascii','nullable'],
+                'lastIr5Epoch' => ['integer', 'numeric', 'ascii','nullable'],
+                'lastCycleStart' => ['integer', 'numeric', 'ascii','nullable'],
+                'queue' => ['ascii','nullable']
             ]);
 
       
