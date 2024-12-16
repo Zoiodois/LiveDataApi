@@ -12,7 +12,7 @@ class Livedata extends Model
 
     protected $fillable = [
         'UrGHouse' => '0',
-        'tempGHouse' => '0',
+        'tempGhouse' => '0',
         'lum' => '0',
         'sen1' => '0',
          'sen2' => '0',

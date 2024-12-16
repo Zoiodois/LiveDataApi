@@ -18,7 +18,7 @@ class LivedataController extends Controller
             // Validação dos dados recebidos
             $validated = $request->validate([
                 'UrGHouse'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100','nullable' ], 
-                'tempGHouse'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100','nullable' ], 
+                'tempGhouse'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100','nullable' ], 
                 'lum'=> ['integer', 'numeric', 'ascii','digits_between:0,100', 'max:110', 'min:-100','nullable' ], 
                 'sen1' => ['integer', 'numeric', 'ascii','digits_between:0,1025', 'max:1025', 'min:-100','nullable' ], //tinyInteger. up to 128
                 'sen2' => ['integer', 'numeric', 'ascii','digits_between:0,1025', 'max:1025', 'min:-100','nullable' ],
