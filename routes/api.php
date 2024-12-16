@@ -20,5 +20,5 @@ Route::middleware('api')->post('/test-endpoint', function (Request $request) {
     return response()->json(['message' => 'Success', 'data' => $request->all()]);
 });
 
-Route::post('/livedata2', [SLivedataController::class, 'postlivedata'])
+Route::post('/livedata2', [LivedataController::class, 'postlivedata'])
     ->withoutMiddleware('csrf');
