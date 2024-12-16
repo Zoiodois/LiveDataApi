@@ -12,10 +12,13 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/login', [AuthController::class, 'login'])->middleware('auth:sanctum'); 
 Route::get('/livedata', [LivedataController::class, 'postlivedata'])->middleware('auth:sanctum'); 
-Route::post('/livedata2', [LivedataController::class, 'postlivedata']); //->middleware('auth:sanctum'); 
+// Route::post('/livedata2', [LivedataController::class, 'postlivedata']); //->middleware('auth:sanctum'); 
 Route::post('/create-user', [AuthController::class, 'create_user']); 
 Route::get('/create-token', [AuthController::class, 'create_token']); 
 
 Route::middleware('api')->post('/test-endpoint', function (Request $request) {
     return response()->json(['message' => 'Success', 'data' => $request->all()]);
 });
+
+Route::post('/livedata2', [SLivedataController::class, 'postlivedata'])
+    ->withoutMiddleware('csrf');
