@@ -17,21 +17,21 @@ return new class extends Migration
             $table->tinyInteger('tempGhouse');
             $table->tinyInteger('UrGHouse');
             $table->tinyInteger('lum');
-        //    $table->tinyInteger('sen1');
-        // $table->tinyInteger('sen2');
-        // $table->tinyInteger('sen3');
-        // $table->tinyInteger('tempGhouse');
-        // $table->tinyInteger('UrGHouse');
-        // $table->tinyInteger('maxTemp');
-        // $table->tinyInteger('minTemp');
-        // $table->string('queue');
-        // $table->Integer('lastCycleEpoch');
-        // $table->Integer('lastIr1Epoch');
-        // $table->Integer('lastIr2Epoch');
-        // $table->Integer('lastIr3Epoch');
-        // $table->Integer('lastIr4Epoch');
-        // $table->Integer('lastIr5Epoch');
-        // $table->string('lastCycleStart');
+           $table->tinyInteger('sen1');
+            $table->tinyInteger('sen2');
+            $table->tinyInteger('sen3');
+            $table->tinyInteger('tempExternal');
+            $table->tinyInteger('UrExternal');
+        $table->tinyInteger('maxTemp');
+        $table->tinyInteger('minTemp');
+        $table->string('queue');
+        $table->Integer('lastCycleEpoch');
+        $table->Integer('lastIr1Epoch');
+        $table->Integer('lastIr2Epoch');
+        $table->Integer('lastIr3Epoch');
+        $table->Integer('lastIr4Epoch');
+        $table->Integer('lastIr5Epoch');
+        $table->string('lastCycleStart');
         });
     }
 
