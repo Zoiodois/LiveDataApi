@@ -14,24 +14,24 @@ return new class extends Migration
         Schema::create('livedatas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->tinyInteger('tempGhouse');
-            $table->tinyInteger('UrGHouse');
-            $table->tinyInteger('lum');
-           $table->tinyInteger('sen1');
-            $table->tinyInteger('sen2');
-            $table->tinyInteger('sen3');
-            $table->tinyInteger('tempExternal');
-            $table->tinyInteger('UrExternal');
-        $table->tinyInteger('maxTemp');
-        $table->tinyInteger('minTemp');
-        $table->string('queue');
-        $table->Integer('lastCycleEpoch');
-        $table->Integer('lastIr1Epoch');
-        $table->Integer('lastIr2Epoch');
-        $table->Integer('lastIr3Epoch');
-        $table->Integer('lastIr4Epoch');
-        $table->Integer('lastIr5Epoch');
-        $table->string('lastCycleStart');
+            $table->tinyInteger('tempGhouse')->default(0);
+            $table->tinyInteger('UrGHouse')->default(0);
+            $table->tinyInteger('lum')->default(0);
+           $table->tinyInteger('sen1')->default(0);
+            $table->tinyInteger('sen2')->default(0);
+            $table->tinyInteger('sen3')->default(0);
+            $table->tinyInteger('tempExternal')->default(0);
+            $table->tinyInteger('UrExternal')->default(0);
+        $table->tinyInteger('maxTemp')->default(0);
+        $table->tinyInteger('minTemp')->default(0);
+        $table->string('queue')->default('fail');
+        $table->Integer('lastCycleEpoch')->default(0);
+        $table->Integer('lastIr1Epoch')->default(0);
+        $table->Integer('lastIr2Epoch')->default(0);
+        $table->Integer('lastIr3Epoch')->default(0);
+        $table->Integer('lastIr4Epoch')->default(0);
+        $table->Integer('lastIr5Epoch')->default(0);
+        $table->Integer('lastCycleStart')->default(0);
         });
     }
 
