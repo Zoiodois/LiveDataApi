@@ -12,5 +12,6 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/login', [AuthController::class, 'login'])->middleware('auth:sanctum'); 
 Route::get('/livedata', [LivedataController::class, 'postlivedata'])->middleware('auth:sanctum'); 
+Route::post('/livedata2', [LivedataController::class, 'postlivedata'])->middleware('auth:sanctum'); 
 Route::post('/create-user', [AuthController::class, 'create_user']); 
 Route::get('/create-token', [AuthController::class, 'create_token']); 
