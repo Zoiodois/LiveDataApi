@@ -28,17 +28,37 @@ class AuthController extends Controller
         $user = User::create($incomingFields);
 
         if(Auth::attempt([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => $request['password']
+            'name' => $incomingFields['name'],
+            'email' => $incomingFields['email'],
+            'password' => $incomingFields['password']
         ])){
 
-            $token = $request->user()->createToken('teste');
-            return( $token);
+            return( 'Usuário criado com sucesso');
         }
 
-        return ('seu burro');
+        return ('Ops. Algo deu errado.');
 
 
     }
+
+    public function create_token(Request $request){
+
+        $incomingFields = $request->validate([
+            'name' =>[ 'required'], // Rule::unique('users', 'name')
+            'password' => [ 'required']
+        ]);
+
+        if(Auth::attempt([
+            'name' => $incomingFields['name'],
+            'password' => $incomingFields['password']
+        ]))
+        {
+            $token = $request->user()->createToken('esp8266');
+            return( $token);
+        }
+            
+            
+        return( 'Usuário não foi criado');
+    }
+
 }
