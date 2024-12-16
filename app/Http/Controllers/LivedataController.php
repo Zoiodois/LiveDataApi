@@ -9,6 +9,8 @@ class LivedataController extends Controller
 {
     public function postlivedata(Request $request){
 
+            \Log::info('Dados recebidos:', $request->all());
+
             // Validação dos dados recebidos
             $validated = $request->validate([
                 'UrGHouse'=> ['required', 'integer', 'numeric', 'ascii','digits_between:0,100', 'max:100', 'min:-100' ], 
