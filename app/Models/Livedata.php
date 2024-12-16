@@ -14,6 +14,22 @@ class Livedata extends Model
         'UrGHouse',
         'tempGHouse',
         'lum',
+        'lum',
+        'sen1',
+         'sen2',
+         'sen3',
+         'tempExternal',
+         'UrExternal',
+     'maxTemp',
+     'minTemp',
+     'queue',
+     'lastCycleEpoch',
+     'lastIr1Epoch',
+     'lastIr2Epoch',
+     'lastIr3Epoch',
+     'lastIr4Epoch',
+     'lastIr5Epoch',
+     'lastCycleStart',
     ];
 
 
