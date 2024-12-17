@@ -3,12 +3,16 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\LivedataController;
+use App\Http\Controllers\Api\v0\LivedataController;
+
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+
+Route::prefix('v0')->group(function(){
 
 Route::get('/login', [AuthController::class, 'login'])->middleware('auth:sanctum'); 
 Route::get('/livedata', [LivedataController::class, 'postlivedata'])->middleware('auth:sanctum'); 
@@ -19,6 +23,10 @@ Route::get('/create-token', [AuthController::class, 'create_token']);
 Route::middleware('api')->post('/test-endpoint', function (Request $request) {
     return response()->json(['message' => 'Success', 'data' => $request->all()]);
 });
+
+});
+
+
 
 // Route::post('livedata2', [LivedataController::class, 'postlivedata'])
 //     ->withoutMiddleware('csrf');

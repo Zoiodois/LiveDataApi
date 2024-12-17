@@ -1,0 +1,188 @@
+/* SASS and Global'ish Stuff */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #f7f7f7;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  li, a, h2, h3, h4 {
+    font-family: sans-serif;
+    font-weight: 400;
+    margin: 0px;
+    padding: 0px;
+ 
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #388e3c;
+  }
+  
+  .right-column {
+    width: 30%;
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-left: 2px solid #c8e6c9;
+    overflow-y: auto;
+  }
+  
+  .collapsible {
+    background-color: #388e3c;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  
+  .collapsible:hover {
+    background-color: #2e7d32;
+  }
+  
+  .content {
+    padding: 10px;
+    display: none;
+    background-color: #ffffff;
+    margin-top: 5px;
+    border: 1px solid #c8e6c9;
+    border-radius: 5px;
+  }
+  
+  .content p {
+    margin: 5px 0;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #388e3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  .btn:hover {
+    background-color: #2e7d32;
+  }
+  
+  .left-column {
+    width: 20%;
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-right: 2px solid #c8e6c9;
+    overflow-y: auto;
+  }
+  
+  .climate-info {
+    margin-bottom: 20px;
+  }
+  
+  .info-item {
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Backgrounds for different weather conditions */
+  .bg-sun {
+    background-color: #ffc107;
+  }
+  
+  .bg-rain {
+    background-color: #64b5f6;
+  }
+  
+  .bg-cold {
+    background-color: #90caf9;
+  }
+  
+  /* Probability of rain */
+  .low-rain {
+    color: #2e7d32;
+  }
+  
+  .normal-rain {
+    color: #ff9800;
+  }
+  
+  .high-rain {
+    color: #d32f2f;
+  }
+  
+  /* Evapotranspiration pressure */
+  .low-pressure {
+    color: #2e7d32;
+  }
+  
+  .normal-pressure {
+    color: #fbc02d;
+  }
+  
+  .high-pressure {
+    color: #c62828;
+  }
+  
+  .column {
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .center-column {
+    width: 60%;
+    background-color: #ffffff;
+  }
+  
+  .climate-info, .stock-info, .details-info {
+    margin-bottom: 20px;
+  }
+  
+  .stock-list, .details {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .stock-list th, .stock-list td, .details th, .details td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .stock-list th {
+    background-color: #c8e6c9;
+  }
+  
+  .details th {
+    background-color: #f0f4c3;
+  }
+  
+  /*# sourceMappingURL=style.css.map */
