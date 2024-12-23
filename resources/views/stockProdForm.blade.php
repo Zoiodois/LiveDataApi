@@ -11,18 +11,18 @@
 <x-productionForm method="POST" action="/stock">  
     @csrf
    
-    <x-forms.inputText name="displayName" type="text" label="Display Name" placeholder="Must be Unique" />
-    <x-forms.inputText name="batchId" type="number" label="ID do Lote" placeholder="Batch Id" />
-    <x-forms.inputText name="matrixId" type="number" label="ID da Matriz" placeholder="Batch Id" />
-    <x-forms.inputText name="seedBankId" type="number" label="ID do Lote" placeholder="ID do Banco de Sementes" />
-    <x-forms.inputText name="idColor" type="text" label="Cor de Identificação" placeholder="Cor de Identificação" />
-    <x-forms.inputText name="quantity" type="number" label="Quantidade" placeholder="Quantidade" />
-    <x-forms.inputText name="plantDate" type="date" label="Data de Plantio" />
-    <x-forms.inputText name="endPrevision" type="date" label="Data de Termino" />
-    <x-forms.inputText name="status" type="text" label="Localização" />
-    <x-forms.inputText name="quantitySold" type="number" label="Quantidade Vendida" />
-    <x-forms.inputText name="quantityDead" type="number" label="Quantidade Morta" />
-    <x-forms.inputText name="observation" type="text" label="Observação" />
+    <x-forms.input-text name="displayName" type="text" label="Display Name" placeholder="Must be Unique" />
+    <x-forms.input-text name="batchId" type="number" label="ID do Lote" placeholder="Batch Id" />
+    <x-forms.input-text name="matrixId" type="number" label="ID da Matriz" placeholder="Batch Id" />
+    <x-forms.input-text name="seedBankId" type="number" label="ID do Lote" placeholder="ID do Banco de Sementes" />
+    <x-forms.input-text name="idColor" type="text" label="Cor de Identificação" placeholder="Cor de Identificação" />
+    <x-forms.input-text name="quantity" type="number" label="Quantidade" placeholder="Quantidade" />
+    <x-forms.input-text name="plantDate" type="date" label="Data de Plantio" />
+    <x-forms.input-text name="endPrevision" type="date" label="Data de Termino" />
+    <x-forms.input-text name="status" type="text" label="Localização" />
+    <x-forms.input-text name="quantitySold" type="number" label="Quantidade Vendida" />
+    <x-forms.input-text name="quantityDead" type="number" label="Quantidade Morta" />
+    <x-forms.input-text name="observation" type="text" label="Observação" />
     
 </x-productionForm>
 
