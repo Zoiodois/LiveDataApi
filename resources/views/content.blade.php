@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+@extends('master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greenhouse Control Pannel</title>
-    @vite( ['resources/css/app.css', 
-    'resources/scss/style.scss',
-    'resources/js/app.js'])
-  
-</head>
+@section('content')
+    
 
 
-<body>
-
-    @include('partials/header')
-
-    <div>
-
-     
+<div>
+    
+    
     <div class="data">
-
+        
         <div class="left-column">
             <h1>Clima Atual</h1>
             
@@ -36,43 +24,43 @@
                 <p><strong>Umidade do Ar:</strong> {{ $weather['umidade_relativa'] }} %</p>
             </div>
             
-        <!-- Example of Cold Condition -->
-        <div class="info-item bg-cold">
-            <p><strong>Sensação Térm: </strong>{{ $weather['sensacao'] }} °C</p>
+            <!-- Example of Cold Condition -->
+            <div class="info-item bg-cold">
+                <p><strong>Sensação Térm: </strong>{{ $weather['sensacao'] }} °C</p>
+            </div>
+            
+            <!-- Probability of Rain with Color-Coded Text -->
+            <div class="info-item bg-rain">
+                <p><strong>Prob. de Chuva:</strong>
+                    <span class="normal-rain">40%</span>
+                </p>
+            </div>
+            
+            <!-- Evapotranspiration Pressure with Color-Coded Text -->
+            <div class="info-item bg-sun">
+                <p><strong>Pressão de Evapotranspiração:</strong>
+                    <span class="high-pressure">4 kPa</span>
+                </p>
+            </div>
         </div>
         
-        <!-- Probability of Rain with Color-Coded Text -->
-        <div class="info-item bg-rain">
-            <p><strong>Prob. de Chuva:</strong>
-                <span class="normal-rain">40%</span>
-            </p>
-        </div>
-        
-        <!-- Evapotranspiration Pressure with Color-Coded Text -->
-        <div class="info-item bg-sun">
-            <p><strong>Pressão de Evapotranspiração:</strong>
-                <span class="high-pressure">4 kPa</span>
-            </p>
-        </div>
-    </div>
-    
-    <div class="column center-column">
-        <h1>Painel de Campo</h1>
-        <div class="details-info">
-            <h2>Ultimas Irrigações:</h2>
-            <table class="details">
-                
-                
-                <tr>
-                    <th>Alfaces</th>
-                    <td>{{  $tranformedEpochs['lastIr1Epoch']['data'] }}</td>
-                    <td>{{  $tranformedEpochs['lastIr1Epoch']['time'] }}</td>
+        <div class="column center-column">
+            <h1>Painel de Campo</h1>
+            <div class="details-info">
+                <h2>Ultimas Irrigações:</h2>
+                <table class="details">
                     
-                </tr>
-                <tr>
-                    <th>Canteiro 1</th>
                     
-                    <td>{{  $tranformedEpochs['lastIr2Epoch']['data'] }}</td>
+                    <tr>
+                        <th>Alfaces</th>
+                        <td>{{  $tranformedEpochs['lastIr1Epoch']['data'] }}</td>
+                        <td>{{  $tranformedEpochs['lastIr1Epoch']['time'] }}</td>
+                        
+                    </tr>
+                    <tr>
+                        <th>Canteiro 1</th>
+                        
+                        <td>{{  $tranformedEpochs['lastIr2Epoch']['data'] }}</td>
                     <td>{{  $tranformedEpochs['lastIr2Epoch']['time'] }}</td>
                 </tr>
                 <tr>
@@ -197,31 +185,28 @@
         
         @endauth --}}
     </div>
+    
+</div>
 
-    </div>
 
-    @include('partials/footer')
-     
-        
-        
-        <script>
-            // JavaScript para funcionalidade de colapsar
-            const collapsibles = document.querySelectorAll(".collapsible");
+
+<script>
+    // JavaScript para funcionalidade de colapsar
+    const collapsibles = document.querySelectorAll(".collapsible");
+    
+    collapsibles.forEach(button => {
+        button.addEventListener("click", function() {
+            this.classList.toggle("active");
             
-            collapsibles.forEach(button => {
-                button.addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    
-                    const content = this.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                });
-            });
-            </script>
+            const content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    });
+    </script>
 
-</body>
+@endsection
 
-</html>
