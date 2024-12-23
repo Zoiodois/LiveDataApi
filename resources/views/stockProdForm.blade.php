@@ -11,11 +11,11 @@
 <x-productionForm method="POST" action="/stock">  
     @csrf
    
-    <x-forms.inputText name="displayName" label="Display Name" placeholder="Must be Unique" />
+    <x-forms.inputText name="displayName" type="text" label="Display Name" placeholder="Must be Unique" />
     <x-forms.inputText name="batchId" type="number" label="ID do Lote" placeholder="Batch Id" />
     <x-forms.inputText name="matrixId" type="number" label="ID da Matriz" placeholder="Batch Id" />
     <x-forms.inputText name="seedBankId" type="number" label="ID do Lote" placeholder="ID do Banco de Sementes" />
-    <x-forms.inputText name="idColor" label="Cor de Identificação" placeholder="Cor de Identificação" />
+    <x-forms.inputText name="idColor" type="text" label="Cor de Identificação" placeholder="Cor de Identificação" />
     <x-forms.inputText name="quantity" type="number" label="Quantidade" placeholder="Quantidade" />
     <x-forms.inputText name="plantDate" type="date" label="Data de Plantio" />
     <x-forms.inputText name="endPrevision" type="date" label="Data de Termino" />
