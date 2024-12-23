@@ -7,47 +7,71 @@ use App\Models\Stock;
 use App\Models\Livedata;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\WeatherapiController;
 
 class StockController extends Controller
 {
     
-    public function reallyEditProdForm(Stock $stock, Request $request){
+    public function teste(){
+        return ('passou no teste');
+    }
 
-       if( Auth::attempt($request->user())){
-
-        $incomingfields = $request->validate([
-            'batchId'=> ['required', 'numeric' ], 
-            'matrixId'=> ['required', 'numeric' ], 
-            'seedBankId'=> ['required', 'numeric'], 
-            'idColor'=> ['String', 'ascii', 'max:110', 'min:3' ],
-            'quantity'=> ['required', 'integer', 'numeric', 'ascii','digits_between:0,10000',],
-            'plantDate'=> ['required','date' ],
-            'endPrevision'=>['required','date' ],
-            'status'=> ['required', 'String', 'ascii', 'max:110', 'min:3' ],
-            'quantitySold'=> ['numeric', 'ascii','digits_between:-1,10000', 'max:10000','nullable'],
-            'quantityDead'=>['integer', 'numeric', 'ascii','digits_between:0,100', 'max:10000', 'min:0','nullable'],
-            'observation'=> ['String', 'ascii', 'max:1000','nullable'],
-            'displayName'=> ['required', 'String', 'ascii', 'max:110', 'min:3' ],
+    public function updateForm(Stock $stock, Request $request, string $id){
     
-        ]);
+        $validator = Validator::make($request->all(), 
+            [
+                'batchId'=> ['required', 'numeric' ], 
+                'matrixId'=> ['required', 'numeric' ], 
+                'seedBankId'=> ['required', 'numeric'], 
+                'idColor'=> ['string', 'ascii', 'max:110', 'min:3' ],
+                'quantity'=> ['required', 'integer', 'numeric', 'digits_between:0,10000',],
+                'plantDate'=> ['required','date' ],
+                'endPrevision'=>['required','date' ],
+                'status'=> ['required', 'string', 'ascii', 'max:110', 'min:3' ],
+                'quantitySold'=> ['numeric','digits_between:-1,10000', 'max:10000','nullable'],
+                'quantityDead'=>['integer', 'numeric','digits_between:0,10000', 'max:10000', 'min:0','nullable'],
+                'observation'=> ['string', 'ascii', 'max:1000','nullable'],
+                'displayName'=> ['required', 'string', 'ascii', 'max:110', 'min:3' ],
+            ]);
 
-        $stock->update($incomingfields);
+            if($validator->fails()){
+                return ('validation failed');
+            }
 
-        return $this->showdata();
+            $validated = $validator->validated();
 
-       }
+            $updated = Stock::find($id)->update([
+                'batchId'=> $validated['batchId' ], 
+                'matrixId'=>$validated ['matrixId' ], 
+                'seedBankId'=>$validated ['seedBankId'], 
+                'idColor'=> $validated['idColor' ],
+                'quantity'=>$validated ['quantity'],
+                'plantDate'=> $validated['plantDate' ],
+                'endPrevision'=>$validated['endPrevision' ],
+                'status'=> $validated['status' ],
+                'quantitySold'=> $validated['quantitySold'],
+                'quantityDead'=>$validated['quantityDead'],
+                'observation'=> $validated['observation'],
+                'displayName'=> $validated['displayName' ],
+        
+            ]);
 
+            if($updated){
+                //A mensagem de sucesso nao esta funcionando
+                return $this->show();
+            };
 
-        return ('You are not Logged In');
-
-
+            return ('Atualização Falhou');
 
     }
 
 
     public function editProdForm(Stock $prod){
 
-        return view('editStockProd', ['stock' => $prod]);
+        return view('editProd', ['stock' => $prod]);
     }
 
 
@@ -71,23 +95,9 @@ class StockController extends Controller
         ]);
     
         Stock::create($incomingfields);
-    
-    
-        // return $this->showdata();
+
         return $this->showdata();
     }
-
-    public function showdata(){
-        
-        $data = Stock::all();
-
-        return view('stockdata', [
-            'stock' => $data
-           
-        ]);
-        
-    }
-
 
     public function showProdForm(){
         
@@ -116,23 +126,23 @@ class StockController extends Controller
         foreach ($data as $row) {
             $rowData = array_combine($header, $row); // Associa o cabeçalho às colunas
             // Verifica se o batchId já existe
-        if (!Stock::where('batchId', $rowData['batchId'])->exists()) {
-        // Apenas insere se o batchId não existir
-        Stock::create([
-            'batchId' => $rowData['batchId'],
-            'matrixId' => $rowData['matrixId'],
-            'seedBankId' => $rowData['seedBankId'],
-            'idColor' => $rowData['idColor'],
-            'quantity' => $rowData['quantity'],
-            'plantDate' => Carbon::createFromFormat('Y-m-d', $rowData['plantDate'])->format('Y-m-d'),
-            'endPrevision' => Carbon::createFromFormat('Y-m-d', $rowData['endPrevision'])->format('Y-m-d'),
-            'status' => $rowData['status'],
-            'quantitySold' => $rowData['quantitySold'],
-            'quantityDead' => $rowData['quantityDead'],
-            'observation' => $rowData['observation'],
-            'displayName' => $rowData['displayName'],
-        ]);
-    }
+            if (!Stock::where('batchId', $rowData['batchId'])->exists()) {
+                // Apenas insere se o batchId não existir
+                Stock::create([
+                    'batchId' => $rowData['batchId'],
+                    'matrixId' => $rowData['matrixId'],
+                    'seedBankId' => $rowData['seedBankId'],
+                    'idColor' => $rowData['idColor'],
+                    'quantity' => $rowData['quantity'],
+                    'plantDate' => Carbon::createFromFormat('Y-m-d', $rowData['plantDate'])->format('Y-m-d'),
+                    'endPrevision' => Carbon::createFromFormat('Y-m-d', $rowData['endPrevision'])->format('Y-m-d'),
+                    'status' => $rowData['status'],
+                    'quantitySold' => $rowData['quantitySold'],
+                    'quantityDead' => $rowData['quantityDead'],
+                    'observation' => $rowData['observation'],
+                    'displayName' => $rowData['displayName'],
+                ]);
+            }
         }
 
         return redirect()->route('home')->with('success', 'CSV importado com sucesso!');
@@ -150,23 +160,28 @@ class StockController extends Controller
         $transformFields = ['lastCycleEpoch','lastIr1Epoch','lastIr2Epoch','lastIr3Epoch',
                             'lastIr4Epoch','lastIr5Epoch','lastCycleStart'];
 
-        $filteredLiveData = [];
+        $formatedEpoch = [];
 
         foreach ($transformFields as $key){
             $sendfield = $latestedLiveData[$key];
             $carbonEpoch = \Carbon\Carbon::createFromTimestamp($sendfield);
-            $filteredLiveData[$key]['data'] = $carbonEpoch->format('d-m-Y');
-            $filteredLiveData[$key]['time'] = $carbonEpoch->format('H:i:s');
+            $formatedEpoch[$key]['data'] = $carbonEpoch->format('d-m-Y');
+            $formatedEpoch[$key]['time'] = $carbonEpoch->format('H:i:s');
 
         }
 
         //Stock Controll Filter
-        $stock = Stock::all(); //Filter data with ! = Finalizado, at column 'status'
+        $stock = Stock::whereNotIn('status', ['finalizado', 'Finalizado'])->get();  //Filter data with ! = Finalizado, at column 'status'
+       
+        $weather = (new WeatherapiController)->getdata();
 
+        // dd($weather);
+        
         return view('content',[
-            'tranformedEpochs' => $filteredLiveData,
+            'tranformedEpochs' => $formatedEpoch,
             'liveData' => $latestedLiveData,
-            'stock' => $stock
+            'stock' => $stock,
+            'weather' => $weather
             //create filter here
     
     

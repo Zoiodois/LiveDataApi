@@ -10,12 +10,31 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     //
-    public function login(Request $request){
 
-        return response()->json(['message' => 'You are connected'], 200);
-           
-
+    public function showLoginPage(){
+        return view('loginPage');
     }
+
+    
+    public function login(Request $request)  {
+     
+        $incomingFields = $request->validate([
+            'namelogin'=>['required'],
+            'passwordlogin' => ['required'],
+        ]);
+
+        if( auth()->attempt(['name'=>$incomingFields['namelogin'],'password'=>$incomingFields['passwordlogin']])) {
+            $request->session()->regenerate();
+        }
+
+        return redirect('/');
+    }
+
+    public function logout()  {
+        auth()->logout();
+        return redirect('/stock');
+    }
+
 
     public function create_user(Request $request){
 
