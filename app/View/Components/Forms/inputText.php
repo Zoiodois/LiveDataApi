@@ -29,6 +29,11 @@ class InputText extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.forms.input-text');
+        return view('components.forms.input-text',[
+            'type' => $this->type,
+            'name' => $this->name,
+            'label' => $this->label,
+            'placeholder' => $this->placeholder
+        ]);
     }
 }
