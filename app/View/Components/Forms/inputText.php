@@ -8,6 +8,7 @@ use Illuminate\View\Component;
 
 class InputText extends Component
 {   
+    
     /**
      * Create a new component instance.
      */
