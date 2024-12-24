@@ -7,18 +7,25 @@ use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class InputText extends Component
-{
+{   
+    public string $type;
+    public string $name;
+    public string $label;
+    public string $placeholder;
     /**
      * Create a new component instance.
      */
     public function __construct(
-        public string $type = 'text',
-        public string $name,
-        public string $label,
-        public string $placeholder ='',
+       string $type = 'text',
+       string $name,
+       string $label,
+       string $placeholder ='',
     )
     {
-        //
+        $this->type = $type;
+        $this->name = $name;
+        $this->label = $label;
+        $this->placeholder = $placeholder;
     }
 
     /**
