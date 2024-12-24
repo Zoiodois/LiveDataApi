@@ -19,7 +19,7 @@ class InputText extends Component
        string $type = 'text',
        string $name,
        string $label,
-       string $placeholder ='',
+       string $placeholder ="",
     )
     {
         $this->type = $type;
