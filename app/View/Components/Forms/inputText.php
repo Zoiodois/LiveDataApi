@@ -8,24 +8,20 @@ use Illuminate\View\Component;
 
 class InputText extends Component
 {   
-    public string $type;
-    public string $name;
-    public string $label;
-    public string $placeholder;
     /**
      * Create a new component instance.
      */
     public function __construct(
-       string $type = 'text',
-       string $name,
-       string $label,
-       string $placeholder ="",
+        string $type = 'text',
+        string $name,
+        string $label,
+       ?string $placeholder = null,
     )
     {
         $this->type = $type;
         $this->name = $name;
         $this->label = $label;
-        $this->placeholder = $placeholder;
+        $this->placeholder = $placeholder ?? '';
     }
 
     /**
