@@ -224,9 +224,6 @@ class StockController extends Controller
         return view('example', ['stock' => $stock]);
     }
 
-
-
-
     public function show(){
         //MOVE THIS FUNCTION TO A NEW CONTROLLER
         //Live Data Filter
@@ -249,7 +246,7 @@ class StockController extends Controller
         $stock = Stock::whereNotIn('status', ['finalizado', 'Finalizado'])->get();  //Filter data with ! = Finalizado, at column 'status'
         // $stock = Stock::latest()->first();  //Filter data with ! = Finalizado, at column 'status'
        
-        $weather = (new WeatherapiController)->getdata();
+       // $weather = (new WeatherapiController)->getdata();
 
         // dd($weather);
         
@@ -257,7 +254,7 @@ class StockController extends Controller
             'tranformedEpochs' => $formatedEpoch,
             'liveData' => $latestedLiveData,
             'stock' => $stock,
-            'weather' => $weather
+            //'weather' => $weather
             //create filter here
     
     

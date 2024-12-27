@@ -1,7 +1,16 @@
 @extends('master')
 
 @section('content')
-    
+
+@php
+ 
+  $weather = [
+    'temperatura' =>33,
+    'umidade_relativa' => 55,
+    'sensacao' =>99
+
+ ] 
+@endphp
 
 
 <div>
