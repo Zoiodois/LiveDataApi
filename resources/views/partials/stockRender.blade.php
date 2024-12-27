@@ -19,7 +19,7 @@
 
         const token = document.querySelector('#__token').getAttribute('content');
         const response = await
-        fetch('/updateForm', {
+        fetch('/public/updateForm', {
             method: 'PUT',
             headers: {
                 'X-CSRF-TOKEN' : token,
