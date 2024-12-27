@@ -13,7 +13,9 @@
             <h1>Clima Atual</h1>
             
             <!--Dev a new controller to make the API call and Retrive the values, Maybe an asyncronhos request with js -->
-            
+            {{-- //loopar cada $weather, reduzir o código. Ou um componente que aceite css condicional. -> melhor --}}
+
+
             <!-- Example of Sunny Condition -->
             <div class="info-item bg-sun">
                 <p><strong>Temperatura:</strong> {{ $weather['temperatura'] }} °C</p>
@@ -46,6 +48,7 @@
         
         <div class="column center-column">
             <h1>Painel de Campo</h1>
+           
             <div class="details-info">
                 <h2>Ultimas Irrigações:</h2>
                 <table class="details">
@@ -115,13 +118,34 @@
             
             
         </div>
+        <div>
+            <h6>Melhorias</h6>
+            <ul>
+                <li>Watcher no banco de dados</li>
+                <li>Refresh da página ao receber novos dados</li>
+                <li>Acesso/Display das Configurações</li>
+            </ul>
+        </div>
     </div>
     
     <div class="right-column">
+
+        {{-- usar o alpine para renderizar o componente --}}
+        {{-- Editar aparecer na própria tela --}}
+
+        {{-- passos: 1 Enviar os dados iniciais para o componente --}}
+        {{-- renderizar os dados --}}
+        {{-- gerar os formularios de edição por botao --}}
+        {{-- renderizar os formularios --}}
+        {{-- enviar a edição pra o banco de dados -> Liviwire? --}}
+
+
         <h1>Estoque de Plantas</h1>
+
+        @include('partials/stockRender', ['stock' => $stock])
         
         
-        @foreach ($stock as $data)
+        {{-- @foreach ($stock as $data)
         <button class="collapsible">{{ $data['displayName'] }} - {{ $data['status'] }}</button>
         <div class="content">
             <p><strong>Data de Plantio:</strong>{{ $data['plantDate'] }} </p>
@@ -135,7 +159,7 @@
             </p>
             
         </div>
-        @endforeach
+        @endforeach --}}
         
         <form action="/getProdForm" method="GET">
             

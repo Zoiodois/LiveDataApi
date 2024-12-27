@@ -15,14 +15,17 @@ class InputText extends Component
     public function __construct(
         string $type = 'text',
         string $name,
-        string $label,
-       ?string $placeholder = null,
+        string $label = null,
+        // string $placeholder = null,
+        int $value = null,
+
     )
     {
         $this->type = $type;
         $this->name = $name;
         $this->label = $label;
-        $this->placeholder = $placeholder ?? '';
+        // $this->placeholder = $placeholder ?? '';
+        $this->value = $value ?? '';
     }
 
     /**
@@ -34,7 +37,8 @@ class InputText extends Component
             'type' => $this->type,
             'name' => $this->name,
             'label' => $this->label,
-            'placeholder' => $this->placeholder
+            // 'placeholder' => $this->placeholder,
+            'value' => $this->value,
         ]);
     }
 }

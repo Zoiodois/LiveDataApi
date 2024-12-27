@@ -1,4 +1,4 @@
-<div class="mx-40">
+<div class="flex justify-center">
 
     <form action="{{$action}}" method="{{$method}}" >
         @csrf

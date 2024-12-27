@@ -9,6 +9,7 @@
     @vite( ['resources/css/app.css', 
     'resources/scss/style.scss',
     'resources/js/app.js'])
+    <meta name="csrf-token" content="{{ csrf_token() }}" id="__token">
   
 </head>
       {{-- <ul>
