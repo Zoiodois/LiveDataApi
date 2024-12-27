@@ -40,7 +40,7 @@ jobs:
           SOURCE: "."
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: "/home2/fel78912/public_html/laravel2"
+          TARGET: "/home2/fel78912/public_html"
         with:
           args: --exclude 'node_modules'
 
