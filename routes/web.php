@@ -6,7 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StockController;
 
 Route::get('/', [StockController::class, 'show'])->name('home');
-Route::get('/exemple', [StockController::class, 'exemple'])->name('home');
+// Route::get('/exemple', [StockController::class, 'exemple'])->name('exemple');
 
 //User Autentication and Login Routes -> AuthController
 Route::get('/login', [AuthController::class, 'showLoginPage']);
